@@ -1,0 +1,23 @@
+version: '3'
+services:
+  backend:
+    container_name: backend
+    build:
+      context: ./backend/config
+      dockerfile: Dockerfile
+    ports:
+      - "8000:8000"
+    volumes:
+      - "./backend:/backend"
+    tty: true
+  
+  frontend:
+    container_name: frontend
+    build:
+      context: ./frontend/config
+      dockerfile: Dockerfile
+    ports:
+      - "3000:3000"
+    volumes:
+      - "./frontend:/frontend"
+    tty: true
